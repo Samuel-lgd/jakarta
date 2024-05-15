@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome page</title>
+	<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<h1>Recherche</h1>
+<p>Paramètres de la recherche: </p>
+<ul>
+	<li th:if="${params?.age != null}">Age: <span th:text="${params.age}"></span></li>
+	<li th:if="${params?.lastName != null}">Firstname: <span th:text="${params.firstName}"></span></li>
+	<li th:if="${params?.firstName != null}">Lastname: <span th:text="${params.lastName}"></span></li>
+</ul>
+<p>Voici les profils correspondants a ta recherche:</p>
+<ol>
+	<li th:each="s : ${students}" th:text="${s.firstName} + ' ' + ${s.lastName} + ': ' + ${s.age}"></li>
+</ol>
+<ul>
+	<li th:if="${students.size() == 0}">Aucun profil ne correspond a ta recherche</li>
+</ul>
+</body>
+</html>

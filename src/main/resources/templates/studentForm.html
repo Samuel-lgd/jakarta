@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulaire</title>
+</head>
+<body>
+<form method="post" action="/formSubmit" th:object="${studentBean}">
+	<label>
+		First name:
+		<input th:field="*{firstName}" type="text">
+	</label>
+	<br>
+	<label>
+		Last name:
+		<input th:field="*{lastName}" type="text">
+	</label>
+	<br>
+	<label>
+		Age:
+		<input th:field="*{age}" type="number">
+	</label>
+	<br>
+	<button type="submit">Submit</button>
+	<p th:if="${error != null}" th:text="${error}"></p>
+</form>
+</body>
+</html>
